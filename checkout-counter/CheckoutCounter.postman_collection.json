@@ -1,0 +1,108 @@
+{
+	"id": "3f1a1b89-274f-4b3b-b0b0-f81673641a17",
+	"name": "CheckoutCounter",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"d485c4c3-0637-42e9-98c0-512a91d26527",
+		"63750270-5178-41af-8f9b-cc3c050e8fc8",
+		"8c2ca2ea-039d-4412-9fbd-8cd3e345291a",
+		"05997400-4962-49ce-9339-b38133641b22"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "05997400-4962-49ce-9339-b38133641b22",
+			"name": "Get Bill by ID",
+			"url": "http://localhost:8080/v1/bills/1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "63750270-5178-41af-8f9b-cc3c050e8fc8",
+			"name": "Get Customer by ID",
+			"url": "localhost:8080/v1/customers/1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept-Language",
+					"value": "de",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Accept-Language: de\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "8c2ca2ea-039d-4412-9fbd-8cd3e345291a",
+			"name": "POST Bill Generation",
+			"url": "http://localhost:8080/v1/bills/customer/1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept-Language",
+					"value": "de",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Accept-Language: de\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d485c4c3-0637-42e9-98c0-512a91d26527",
+			"name": "Post Item in Cart ",
+			"url": "localhost:8080/v1/customers/1/cart",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"cartEntry\": {\n\t\t\"123456789008\": 1\n\t}\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}
