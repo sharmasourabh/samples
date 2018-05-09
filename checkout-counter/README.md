@@ -4,6 +4,8 @@ Checkout Counter app supports scanning of products (adding them to cart) and gen
 
 It is created as a monolithic application. It can easily converted to microservice project by creating four services - billing, product, taxation and customer. Therefore, you would find some duplicate code.
 
+No JPA layer has been added. However, code is written in same manner. In-memory (Concurrent HashMap) is used for storing data.
+
 ## REST Endpoints
 There are various endpoints available in this application. However, we would specifically talk about the feature for generating the itemized bill with tax details.
 ### Add items in customer's (id: 1) cart
@@ -150,4 +152,4 @@ Integration tests are added for 5 endpoints in test class: ```src\test\java\srb\
 Unit tests are added for BillController and BillService at ```src\test\java\srb\samples\shopping\checkout\domain\billing```
 
 ## i18n
-Exception messages are added in two languages - default (en_US) and german (de)
+Exception messages are added in two languages - default (en_US) and German (de)
