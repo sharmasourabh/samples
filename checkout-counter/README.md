@@ -104,7 +104,7 @@ curl -X POST \
 You would get the same bill generated above
 ``` bash
 curl -X GET \
-  http://localhost:8080/v1/bills/1 \
+  http://localhost:8080/v1/bills/3 \
   -H 'Cache-Control: no-cache' \
 ```
 #### Output
