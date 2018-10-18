@@ -3,62 +3,55 @@
  */
 
 buildscript {
-	ext {
-		springBootVersion = '1.5.10.RELEASE'
-		releaseVersion = "1.0.0"
-	}
-	repositories {
-	  maven {url "https://plugins.gradle.org/m2/"}
-	  maven {url "http://repo.spring.io/plugins-release"}
-	  jcenter()
-	  mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+        releaseVersion = "1.0.0"
+    }
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "http://repo.spring.io/plugins-release" }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 plugins {
-	id 'java'
-	id 'eclipse'
-	id 'idea'
-	id 'org.springframework.boot' version '1.5.10.RELEASE'
+    id 'java'
+    id 'eclipse'
+    id 'idea'
 }
 
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'srb.samples.shopping.checkout'
 version = releaseVersion
 
 jar {
-	baseName = 'checkout-counter'
+    baseName = 'checkout-counter'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
 
 dependencies {
-	compile('ch.qos.logback:logback-classic:1.2.3')
-	compile('org.springframework.boot:spring-boot-starter-web')
+    compile('ch.qos.logback:logback-classic:1.2.3')
+    compile('org.springframework.boot:spring-boot-starter-web')
 	compile('com.fasterxml.jackson.module:jackson-module-parameter-names')
 	compile('com.fasterxml.jackson.datatype:jackson-datatype-jdk8')
 	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.mockito:mockito-core:2.18.3')
-	
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.mockito:mockito-core:2.23.0')
 }
 
 repositories {
-	jcenter()
-	mavenCentral()
-	maven {url "https://plugins.gradle.org/m2/"}
-	maven {url "http://repo.spring.io/plugins-release"}
-}
-
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
+    jcenter()
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url "http://repo.spring.io/plugins-release" }
 }
 

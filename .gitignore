@@ -52,6 +52,7 @@ gradle-app.setting
 **/.springBeans
 
 # IntelliJ IDEA
+**/out/
 **/.idea
 **/*.iml
 **/*.ipr
